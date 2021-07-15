@@ -1,44 +1,54 @@
 <template>
-  <div>
-    <input
-      placeholder="firstname"
-      type="text"
-      v-model="user.firstname">
+  <div class="flex flex-col items-center justify-center h-full">
+    <div>
+      <input
+        placeholder="firstname"
+        type="text"
+        v-model="user.firstname">
 
-    <input
-      placeholder="lastname"
-      type="text"
-      v-model="user.lastname">
+      <input
+        placeholder="lastname"
+        type="text"
+        v-model="user.lastname">
 
-    <input
-      placeholder="display name"
-      type="text"
-      v-model="user.displayName">
+      <input
+        placeholder="display name"
+        type="text"
+        v-model="user.displayName">
 
-    <input
-      placeholder="username"
-      type="text"
-      v-model="user.username">
+      <input
+        @input="debouncedCheckUsername"
+        placeholder="username"
+        type="text"
+        v-model="user.username">
+      <form-message
+        v-if="error.length"
+        :type="error"
+        :text="error">
+      </form-message>
 
-    <input
-      placeholder="password"
-      type="password"
-      v-model="user.password">
+      <input
+        placeholder="password"
+        type="password"
+        v-model="user.password">
 
-    <button @click="validate()">Submit</button>
-
-    <div v-if="error.length">{{ error }}</div>
+      <button @click="validate()">Submit</button>
+      <a @click="$router.push('/sign-in')">Register</a>
+    </div>
   </div>
 </template>
 
 <script>
 import { AuthService } from '@/api/authApi'
 import { UserService } from '@/api/userApi'
+import _debounce from "lodash/debounce";
+
+const SEARCH_TIMEOUT = 300
 
 export default {
    data() {
      return {
-       error: "",
+       error: '',
        user: {
          firstname: '',
          lastname: '',
@@ -51,34 +61,44 @@ export default {
 
    methods: {
      validate,
-     checkUsername,
+     debouncedCheckUsername: _debounce(checkUsername, SEARCH_TIMEOUT),
      submit
    }
 }
 
 async function validate() {
-  this.error = ""
+  if (this.error.length) {
+    return
+  }
   // validate form
 
-  if (await this.checkUsername()) {
-    // user exists
-    this.error = "Username is taken. Please use something else."
-  } else {
-    this.submit()
-  }
+  this.submit()
 }
 
 async function checkUsername() {
-  const { data } = await UserService.getUserByUsername({
-    username: this.user.username
-  })
-  return data.length
+  this.error = ''
+
+  if (this.user.username.length) {
+    const { data } = await UserService.getUserByUsername({
+      username: this.user.username
+    })
+
+    if (data.length) {
+      // user exist
+      this.error = "Username is taken. Please use something else."
+    }
+  } 
 }
 
 async function submit() {
   const { data } = await AuthService.register(this.user)
   if (data) {
-    this.$router.push({ name: 'signIn' })
+    this.$router.push({
+      name: 'signIn',
+      query: {
+        register: 'success'
+      }
+    })
   }
 }
 </script>

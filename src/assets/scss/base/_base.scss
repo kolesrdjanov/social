@@ -3,6 +3,7 @@
 }
 
 body,
-html {
-    min-height: 100%;
+html,
+div#app {
+    height: 100%;
 }

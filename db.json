@@ -17,68 +17,20 @@
       "displayName": "Colio 2"
     },
     {
-      "id": 3,
+      "firstname": "Dunja",
+      "lastname": "Topalov",
+      "displayName": "Dunjy",
       "username": "username3",
-      "password": "password3",
-      "firstname": "Konstantin v3",
-      "lastname": "Srdjanov v3",
-      "displayName": "Colio 3"
+      "password": "pass",
+      "id": 3
     },
     {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio 3",
-      "username": "username",
-      "password": "password",
+      "firstname": "Dunja v2",
+      "lastname": "Topalov v2",
+      "displayName": "Dunjy2",
+      "username": "username4",
+      "password": "pass",
       "id": 4
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio 4",
-      "username": "username",
-      "password": "password",
-      "id": 5
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio 5",
-      "username": "username",
-      "password": "password",
-      "id": 6
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio v5",
-      "username": "username33",
-      "password": "Bulletin123",
-      "id": 7
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio Yas",
-      "username": "username334",
-      "password": "pass",
-      "id": 8
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio v6",
-      "username": "username335",
-      "password": "pass",
-      "id": 9
-    },
-    {
-      "firstname": "Konstantin",
-      "lastname": "Srdjanov",
-      "displayName": "Colio v7",
-      "username": "username336",
-      "password": "pass",
-      "id": 10
     }
   ],
   "posts": [

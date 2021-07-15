@@ -2,12 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import Moment from "vue-moment"
+import Moment from 'vue-moment'
+import Shared from '@/components/shared'
 import "@/plugins/VeeValidate"
 import "@/assets/scss/main.scss"
 import "@/assets/scss/tailwind.scss"
 
 Vue.use(Moment)
+Vue.use(Shared)
 
 Vue.config.productionTip = false
 

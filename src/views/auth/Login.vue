@@ -1,14 +1,30 @@
 <template>
-  <div>
-    <input
-      type="text"
-      v-model="user.username">
-    <input
-      type="password"
-      v-model="user.password">
-    <button @click="user.username && user.password && submit()">Login</button>
+  <div class="flex flex-col items-center justify-center h-full">
+    <div>
+      <input
+        type="text"
+        @input="error = ''"
+        v-model="user.username">
+      <input
+        type="password"
+        @input="error = ''"
+        v-model="user.password">
 
-    <div v-if="error.length">{{ error }}</div>
+      <form-message
+        v-if="registered"
+        :type="'success'"
+        :text="'Registration successfull! You may log in now.'">
+      </form-message>
+      
+      <form-message
+        v-if="error.length"
+        :type="'error'"
+        :text="error">
+      </form-message>
+
+      <button @click="user.username && user.password && submit()">Login</button>
+      <a @click="$router.push('/register')">Register</a>
+    </div>
   </div>
 </template>
 
@@ -20,6 +36,7 @@ const { mapMutations: userMutations } = createNamespacedHelpers("user")
 export default {
   data() {
     return {
+      registered: false,
       user: {
         username: '',
         password: ''
@@ -30,10 +47,24 @@ export default {
 
   methods: {
     submit,
+    showRegisterSuccess,
     ...userMutations([
       'setUser'
     ])
+  },
+
+  mounted() {
+    if (this.$route.query.register) {
+      this.showRegisterSuccess()
+    }
   }
+}
+
+function showRegisterSuccess() {
+  this.registered = true
+  setTimeout(() => {
+    this.registered = false
+  }, 5000)
 }
 
 async function submit() {
@@ -44,7 +75,7 @@ async function submit() {
     this.setUser(data[0])
     this.$router.push({ name: 'home' })
   } else {
-    this.error = 'Invalid credentials'
+    this.error = 'Invalid credentials.'
   }
 }
 </script>
