@@ -5,8 +5,8 @@ import store from './store'
 import Moment from 'vue-moment'
 import Shared from '@/components/shared'
 import "@/plugins/VeeValidate"
-import "@/assets/scss/main.scss"
-import "@/assets/scss/tailwind.scss"
+import "@/styles/main.scss"
+import "@/styles/tailwind.scss"
 
 Vue.use(Moment)
 Vue.use(Shared)

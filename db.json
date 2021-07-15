@@ -15,36 +15,116 @@
       "firstname": "Konstantin v2",
       "lastname": "Srdjanov v2",
       "displayName": "Colio 2"
-    },
-    {
-      "firstname": "Dunja",
-      "lastname": "Topalov",
-      "displayName": "Dunjy",
-      "username": "username3",
-      "password": "pass",
-      "id": 3
-    },
-    {
-      "firstname": "Dunja v2",
-      "lastname": "Topalov v2",
-      "displayName": "Dunjy2",
-      "username": "username4",
-      "password": "pass",
-      "id": 4
     }
   ],
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "createdAt": 1626347191505,
+      "content": "This represents a post content, yay!",
+      "user": {
+        "id": 1,
+        "firstName": "Konstantin",
+        "lastName": "Srdjanov",
+        "displayName": "Colio"
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": 1626358581994,
+      "content": "This represents a second post content, from another user :)",
+      "user": {
+        "id": 2,
+        "firstName": "Konstantin v2",
+        "lastName": "Srdjanov v2",
+        "displayName": "Colio 2"
+      }
     }
   ],
   "comments": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "createdAt": 1626347322319,
+      "content": "This represents a comment.",
+      "postId": 1,
+      "user": {
+        "id": 1,
+        "firstName": "Konstantin",
+        "lastName": "Srdjanov",
+        "displayName": "Colio"
+      }
+    },
+    {
+      "id": 2,
+      "createdAt": 1626347322319,
+      "content": "This represents a comment.",
+      "postId": 2,
+      "user": {
+        "id": 2,
+        "firstName": "Konstantin v2",
+        "lastName": "Srdjanov v2",
+        "displayName": "Colio 2"
+      }
+    },
+    {
+      "id": 3,
+      "createdAt": 1626347322319,
+      "content": "This represents a 2nd comment.",
+      "postId": 1,
+      "user": {
+        "id": 1,
+        "firstName": "Konstantin",
+        "lastName": "Srdjanov",
+        "displayName": "Colio"
+      }
+    },
+    {
+      "createdAt": 1626360970813,
+      "postId": 2,
+      "content": "New Comment made via API",
+      "user": {
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "id": 1,
+        "displayName": "Colio 1"
+      },
+      "id": 4
+    },
+    {
+      "createdAt": 1626360994969,
+      "postId": 2,
+      "content": "New Comment made via API v2",
+      "user": {
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "id": 1,
+        "displayName": "Colio 1"
+      },
+      "id": 5
+    },
+    {
+      "createdAt": 1626361021029,
+      "postId": 1,
+      "content": "New Comment made via API",
+      "user": {
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "id": 1,
+        "displayName": "Colio 1"
+      },
+      "id": 6
+    },
+    {
+      "createdAt": 1626361058101,
+      "postId": 1,
+      "content": "Apollo",
+      "user": {
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "id": 1,
+        "displayName": "Colio 1"
+      },
+      "id": 7
     }
   ]
 }

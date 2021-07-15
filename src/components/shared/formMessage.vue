@@ -1,6 +1,6 @@
 <template>
   <div
-    class="form-message p-3 rounded text-center"
+    class="form-message p-3 rounded text-center fw-400"
     :class="`form-message--${type}`">
       {{ text }}
   </div>
@@ -25,7 +25,6 @@ export default {
 div.form-message {
   color: white;
   font-size: 12px;
-  font-weight: 500;
 
   &.form-message--success {
     background-color: #52c469;

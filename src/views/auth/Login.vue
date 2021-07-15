@@ -3,26 +3,29 @@
     <div>
       <input
         type="text"
+        v-model="user.username"
         @input="error = ''"
-        v-model="user.username">
+        @keyup.enter="submit()">
+
       <input
         type="password"
+        v-model="user.password"
         @input="error = ''"
-        v-model="user.password">
+        @keyup.enter="submit()">
 
       <form-message
         v-if="registered"
         :type="'success'"
         :text="'Registration successfull! You may log in now.'">
       </form-message>
-      
+
       <form-message
         v-if="error.length"
         :type="'error'"
         :text="error">
       </form-message>
 
-      <button @click="user.username && user.password && submit()">Login</button>
+      <button @click="submit()">Login</button>
       <a @click="$router.push('/register')">Register</a>
     </div>
   </div>
@@ -68,14 +71,16 @@ function showRegisterSuccess() {
 }
 
 async function submit() {
-  this.error = '';
-  const { data } = await AuthService.signIn(this.user)
-  
-  if (data && data.length) {
-    this.setUser(data[0])
-    this.$router.push({ name: 'home' })
-  } else {
-    this.error = 'Invalid credentials.'
+  if (this.user.username.length && this.user.password.length) {
+    this.error = '';
+    const { data } = await AuthService.signIn(this.user)
+    
+    if (data && data.length) {
+      this.setUser(data[0])
+      this.$router.push({ name: 'home' })
+    } else {
+      this.error = 'Invalid credentials.'
+    }
   }
 }
 </script>
