@@ -12,6 +12,14 @@ export default class PostApi {
       }
     })
   }
+
+  create(request) {
+    return restAPI({
+      method: 'POST',
+      url: '/posts',
+      data: request
+    })
+  }
 }
 
 export const PostService = new PostApi()

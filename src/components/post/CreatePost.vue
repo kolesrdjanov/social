@@ -4,7 +4,9 @@
       <span class="fw-500 mr-2">{{ `${user.firstname} ${user.lastname}` }}</span>
       <small class="fw-300">@{{ user.displayName }}</small>
     </div>
-    <validation-observer v-slot="{ handleSubmit }">
+    <validation-observer
+      ref="validator"
+      v-slot="{ handleSubmit }">
       <validation-provider
           v-slot="{ errors, failedRules }"
           :rules="{ required: true }"
@@ -21,7 +23,7 @@
           </div>
 
           <button
-            @click="handleSubmit(submit())"
+            @click="handleSubmit(submit)"
             class="mt-3">
               Post
           </button>
@@ -32,6 +34,7 @@
 
 <script>
 import { createNamespacedHelpers } from "vuex"
+import { PostService } from '@/api/postApi'
 
 const { mapGetters: userGetters } = createNamespacedHelpers("user")
 
@@ -56,8 +59,26 @@ export default {
   }
 }
 
-function submit() {
+async function submit() {
+  try {
+    const request = {
+      createdAt: Date.now(),
+      content: this.post.content,
+      user: {
+        firstName: this.user.firstname,
+        lastName: this.user.lastname,
+        displayName: this.user.displayName
+      }
+    }
 
+    await PostService.create(request)
+    this.post.content = ''
+    debugger
+    this.$refs.validator.reset()
+    this.reloadFeed()
+  } catch(error) {
+    console.log(error)
+  }
 }
 
 function reloadFeed() {

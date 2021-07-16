@@ -14,6 +14,7 @@
       </div>
       <div class="mt-4 mb-4">
         <small
+          v-if="comments.length"
           @click="toggleComments()"
           class="underline cursor-pointer">
             {{ showComments ? 'Hide comments' : `Show ${comments.length} comments` }}

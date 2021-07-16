@@ -1,12 +1,11 @@
 <template>
   <div class="flex flex-col">
-    <textarea
+    <input
       class="w-full"
       placeholder="Mic'drop them"
       v-model="comment"
       @keyup.enter="submit()"
       type="text">
-    </textarea>
     <button
       @click="submit()"
       class="ml-auto mt-2">
