@@ -12,11 +12,26 @@ export default class CommentApi {
     })
   }
 
-  createComment(request) {
+  create(request) {
     return restAPI({
       method: 'POST',
       url: `/comments`,
       data: request
+    })
+  }
+
+  remove(id) {
+    return restAPI({
+      method: 'DELETE',
+      url: `/comments/${id}`
+    })
+  }
+
+  update(request) {
+    return restAPI({
+      method: 'PUT',
+      url: `/comments/${request.id}`,
+      data: request.data
     })
   }
 }

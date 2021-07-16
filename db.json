@@ -15,6 +15,14 @@
       "firstname": "Konstantin v2",
       "lastname": "Srdjanov v2",
       "displayName": "Colio 2"
+    },
+    {
+      "firstname": "Boran",
+      "lastname": "Borun",
+      "displayName": "Bohrun",
+      "username": "user",
+      "password": "pass",
+      "id": 3
     }
   ],
   "posts": [
@@ -42,18 +50,6 @@
     }
   ],
   "comments": [
-    {
-      "id": 1,
-      "createdAt": 1626347322319,
-      "content": "This represents a comment.",
-      "postId": 1,
-      "user": {
-        "id": 1,
-        "firstName": "Konstantin",
-        "lastName": "Srdjanov",
-        "displayName": "Colio"
-      }
-    },
     {
       "id": 2,
       "createdAt": 1626347322319,
@@ -105,7 +101,7 @@
     {
       "createdAt": 1626361021029,
       "postId": 1,
-      "content": "New Comment made via API",
+      "content": "New Comment made via API. Also edited via API.",
       "user": {
         "firstname": "Konstantin v1",
         "lastname": "Srdjanov v1",
@@ -119,12 +115,48 @@
       "postId": 1,
       "content": "Apollo",
       "user": {
+        "firstname": "Konstantin v2",
+        "lastname": "Srdjanov v2",
+        "id": 2,
+        "displayName": "Colio 2"
+      },
+      "id": 7
+    },
+    {
+      "createdAt": 1626365419378,
+      "postId": 1,
+      "content": "Boruha comments",
+      "user": {
+        "firstname": "Boran",
+        "lastname": "Borun",
+        "id": 3,
+        "displayName": "Bohrun"
+      },
+      "id": 8
+    },
+    {
+      "createdAt": 1626367672341,
+      "postId": 1,
+      "content": "Comment for editing. Edited with love.",
+      "user": {
         "firstname": "Konstantin v1",
         "lastname": "Srdjanov v1",
         "id": 1,
         "displayName": "Colio 1"
       },
-      "id": 7
+      "id": 9
+    },
+    {
+      "createdAt": 1626370552065,
+      "postId": 1,
+      "content": "Yestosh krestosh",
+      "user": {
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "id": 1,
+        "displayName": "Colio 1"
+      },
+      "id": 10
     }
   ]
 }

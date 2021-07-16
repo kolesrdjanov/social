@@ -33,7 +33,7 @@
         v-model="user.password">
 
       <button @click="validate()">Submit</button>
-      <a @click="$router.push('/sign-in')">Register</a>
+      <a @click="$router.push('/sign-in')">Back to Sign In</a>
     </div>
   </div>
 </template>

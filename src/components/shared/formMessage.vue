@@ -27,11 +27,11 @@ div.form-message {
   font-size: 12px;
 
   &.form-message--success {
-    background-color: #52c469;
+    background-color: $color-success;
   }
 
   &.form-message--error {
-    background-color: #c24848;
+    background-color: $color-error;
   }
 }
 </style>

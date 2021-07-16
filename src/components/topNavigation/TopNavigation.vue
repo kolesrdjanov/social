@@ -46,6 +46,8 @@ async function signOutAndRedirect() {
 
 <style lang="scss" scoped>
 header#header {
+  position: sticky;
+  top: 0;
   background-color: #f2f2f2;
 }
 </style>

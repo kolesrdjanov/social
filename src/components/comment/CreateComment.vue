@@ -1,10 +1,17 @@
 <template>
-  <div>
-    <input
+  <div class="flex flex-col">
+    <textarea
+      class="w-full"
+      placeholder="Mic'drop them"
       v-model="comment"
       @keyup.enter="submit()"
       type="text">
-    <button @click="submit()">Post</button>
+    </textarea>
+    <button
+      @click="submit()"
+      class="ml-auto mt-2">
+        Post comment
+    </button>
   </div>
 </template>
 
@@ -57,7 +64,7 @@ async function submit() {
       }
     }
 
-    await CommentService.createComment(request)
+    await CommentService.create(request)
     this.comment = ''
     this.reloadComments()
   } catch (error) {
