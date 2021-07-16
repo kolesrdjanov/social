@@ -1,6 +1,21 @@
 body {
-    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.color-dark {
+    color: $color-dark;
+}
+
+.color-medium {
+    color: $color-medium;
+}
+
+.color-light {
+    color: white;
 }
 
 .fw-500 {

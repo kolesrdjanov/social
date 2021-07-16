@@ -1,0 +1,73 @@
+$breakpoints: (
+    'small': 768px,
+    'medium' : 1024px,
+    'large' : 1290px,
+    'xlarge' : 1536px,
+    'xxlarge' : 1600px,
+    'xxxlarge': 1920px
+);
+
+/*
+
+    usage: @include respond-to('small'){
+               property: value;
+           }
+
+*/
+@mixin respond-to($breakpoint){
+    $value: map-get($breakpoints, $breakpoint);
+
+    @if $value != null{
+        @media (max-width: $value){
+            @content;
+        }
+    }
+
+    @else{
+        @warn "No such value in `#{$breakpoint}`. " + "Check `$breakpoints` map.";
+    }
+}
+
+/*
+    usage: @include transition(all, .2s, ease);
+    default values: all, .2s, ease
+ */
+@mixin transition($property: all, $time: 0.2s, $effect: ease){
+    -webkit-transition: $property $time $effect;
+    -moz-transition: $property $time $effect;;
+    -o-transition: $property $time $effect;;
+    transition: $property $time $effect;;
+}
+
+@mixin set-font($size, $color) {
+    font-size: $size;
+    color: $color;
+}
+
+@function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+}
+
+@mixin optional-at-root($sel) {
+    @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+        @content;
+    }
+}
+  
+@mixin placeholder {
+    @include optional-at-root('::-webkit-input-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root(':-moz-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root('::-moz-placeholder') {
+        @content;
+    }
+  
+    @include optional-at-root(':-ms-input-placeholder') {
+        @content;
+    }
+}

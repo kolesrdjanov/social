@@ -1,0 +1,19 @@
+%base-button {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: $size-base-border-radius;
+    padding: $size-button-gutter;
+}
+
+button.btn-primary {
+    @include transition;
+    @extend %base-button;
+
+    color: white;
+    background-color: $color-primary;
+    font-weight: 700;
+    font-size: 14px;
+
+    &:hover {
+        background-color: darken($color-primary, 5%);
+    }
+}

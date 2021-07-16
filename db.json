@@ -23,6 +23,14 @@
       "username": "user",
       "password": "pass",
       "id": 3
+    },
+    {
+      "firstname": "Dunjy",
+      "lastname": "Topaly",
+      "displayName": "Dunj",
+      "username": "un",
+      "password": "pw",
+      "id": 4
     }
   ],
   "posts": [
@@ -87,6 +95,16 @@
         "displayName": "Colio 1"
       },
       "id": 6
+    },
+    {
+      "createdAt": 1626430364311,
+      "content": "This is awesome!",
+      "user": {
+        "firstName": "Dunjy",
+        "lastName": "Topaly",
+        "displayName": "Dunj"
+      },
+      "id": 7
     }
   ],
   "comments": [
@@ -209,6 +227,18 @@
         "displayName": "Colio 1"
       },
       "id": 11
+    },
+    {
+      "createdAt": 1626430375805,
+      "postId": 7,
+      "content": "Commenty",
+      "user": {
+        "firstname": "Dunjy",
+        "lastname": "Topaly",
+        "id": 4,
+        "displayName": "Dunj"
+      },
+      "id": 12
     }
   ]
 }
