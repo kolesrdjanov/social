@@ -35,14 +35,24 @@ const routes = [
     ]
   },
   {
-    path: '/sign-in',
-    name: 'signIn',
-    component: () => import('@/views/auth/Login.vue')
-  },
-  {
-    path: '/register',
-    name: 'register',
-    component: () => import('@/views/auth/Register.vue')
+    name: 'auth',
+    path: '/auth',
+    redirect: {
+      name: 'signIn'
+    },
+    component: () => import ('@/views/auth/BaseAuth.vue'),
+    children: [
+      {
+        path: '/sign-in',
+        name: 'signIn',
+        component: () => import('@/views/auth/Login.vue')
+      },
+      {
+        path: '/register',
+        name: 'register',
+        component: () => import('@/views/auth/Register.vue')
+      }
+    ]
   }
 ]
 
