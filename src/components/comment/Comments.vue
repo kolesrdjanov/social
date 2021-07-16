@@ -29,13 +29,13 @@
             </div>
             <div class="comment-inner flex">
               <small
-                v-if="comment.user.id === user.id"
+                v-if="user && (comment.user.id === user.id)"
                 @click="showEditComment(comment)"
                 class="color-medium cursor-pointer mt-3 mr-2">
                   Edit
               </small>
               <small
-                v-if="comment.user.id === user.id || post.user.id === user.id"
+                v-if="user && (comment.user.id === user.id || post.user.id === user.id)"
                 @click="removeComment(comment.id)"
                 class="color-medium cursor-pointer mt-3">
                   Remove

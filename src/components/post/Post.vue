@@ -20,7 +20,7 @@
               <i class="icon-comment"></i>
               {{ showComments ? 'Hide comments' : `${comments.length} comments` }}
           </small>
-          <div v-if="user.id === data.user.id" class="ml-auto">
+          <div v-if="user && user.id === data.user.id" class="ml-auto">
             <small class="cursor-pointer fw-500 color-medium fs-14 mr-4">
               Edit
             </small>

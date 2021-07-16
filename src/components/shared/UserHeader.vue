@@ -13,12 +13,10 @@
 export default {
   props: {
     user: {
-      type: Object,
-      required: true
+      type: Object
     },
     timestamp: {
       type: Number,
-      required: false,
       default: null
     }
   }
