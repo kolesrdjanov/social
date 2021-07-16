@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex"
+import { createNamespacedHelpers } from 'vuex'
 
 const {
   mapGetters: userGetters,
-  mapActions: userActions } = createNamespacedHelpers("user")
+  mapActions: userActions } = createNamespacedHelpers('user')
 
 export default {
   computed: {

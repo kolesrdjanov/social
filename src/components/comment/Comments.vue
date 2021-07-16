@@ -49,10 +49,10 @@
 
 <script>
 import Vue from 'vue'
-import { createNamespacedHelpers } from "vuex"
+import { createNamespacedHelpers } from 'vuex'
 import { CommentService } from '@/api/commentApi'
 
-const { mapGetters: userGetters } = createNamespacedHelpers("user")
+const { mapGetters: userGetters } = createNamespacedHelpers('user')
 
 export default {
   props: {

@@ -54,9 +54,9 @@
 </template>
 
 <script>
-import { AuthService } from "@/api/authApi"
-import { createNamespacedHelpers } from "vuex"
-const { mapMutations: userMutations } = createNamespacedHelpers("user")
+import { AuthService } from '@/api/authApi'
+import { createNamespacedHelpers } from 'vuex'
+const { mapMutations: userMutations } = createNamespacedHelpers('user')
 
 export default {
   data() {

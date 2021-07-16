@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from "vuex"
+import { createNamespacedHelpers } from 'vuex'
 import { PostService } from '@/api/postApi'
 
-const { mapGetters: userGetters } = createNamespacedHelpers("user")
+const { mapGetters: userGetters } = createNamespacedHelpers('user')
 
 export default {
   data() {

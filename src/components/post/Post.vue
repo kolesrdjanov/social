@@ -80,10 +80,10 @@
 import CreateComment from '@/components/comment/CreateComment.vue'
 import Comments from '@/components/comment/Comments.vue'
 import { CommentService } from '@/api/commentApi'
-import { createNamespacedHelpers } from "vuex"
+import { createNamespacedHelpers } from 'vuex'
 import { PostService } from '@/api/postApi'
 
-const { mapGetters: userGetters } = createNamespacedHelpers("user")
+const { mapGetters: userGetters } = createNamespacedHelpers('user')
 
 export default {
   components: {
