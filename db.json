@@ -68,6 +68,29 @@
         "displayName": "Dunj"
       },
       "id": 2
+    },
+    {
+      "createdAt": 1626448067306,
+      "content": "This app rocks!",
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 3
+    },
+    {
+      "createdAt": 1626453079498,
+      "content": "Vildhjarto",
+      "user": {
+        "id": 1,
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "displayName": "Colio 1",
+        "icon": "peach"
+      },
+      "id": 4
     }
   ],
   "comments": [
@@ -109,6 +132,19 @@
         "icon": "peach"
       },
       "id": 3
+    },
+    {
+      "createdAt": 1626448301136,
+      "postId": 3,
+      "content": "Fuck yeah it rocks!",
+      "user": {
+        "id": 1,
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "displayName": "Colio 1",
+        "icon": "peach"
+      },
+      "id": 4
     }
   ]
 }

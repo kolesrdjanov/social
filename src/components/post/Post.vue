@@ -12,7 +12,7 @@
       </div>
 
       <div class="inner">
-        <div class="mt-4 mb-6 flex flex-row">
+        <div class="my-4 flex flex-row items-end">
           <small
             v-if="comments.length"
             @click="toggleComments()"

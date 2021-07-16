@@ -39,5 +39,6 @@ function search() {
 .input-group {
   min-height: 60px;
   background-color: white !important;
+  box-shadow: $shadow;
 }
 </style>

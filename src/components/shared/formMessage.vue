@@ -23,9 +23,8 @@ export default {
 
 <style lang="scss" scoped>
 div.form-message {
-  color: white;
-  font-size: 14px;
-
+  font-size: 12px;
+  font-weight: 400;
 
   &.form-message--success {
     color: $color-success;

@@ -24,9 +24,12 @@
                 Post
             </button>
           </div>
-          <div v-if="errors" class="validation--wrapper ml-7 mt-2">
-            <span v-if="failedRules['required']">Post content is required</span>
-          </div>
+          <form-message
+            class="ml-7 mt-2"
+            :text="failedRules['required']"
+            :type="'error'"
+            v-if="errors.length">
+          </form-message>
       </validation-provider>
     </validation-observer>
   </div>
