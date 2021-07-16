@@ -1,5 +1,8 @@
 <template>
   <div>
+    <search
+      @input="getPosts">
+    </search>
     <create-post
       @reloadFeed="getPosts">
     </create-post>
@@ -15,12 +18,14 @@
 <script>
 import CreatePost from '@/components/post/CreatePost.vue'
 import Post from '@/components/post/Post.vue'
+import Search from '@/components/search/search.vue'
 import { PostService } from '@/api/postApi'
 
 export default {
   components: {
     CreatePost,
-    Post
+    Post,
+    Search
   },
 
   data() {
@@ -38,9 +43,9 @@ export default {
   }
 }
 
-async function getPosts() {
+async function getPosts(params) {
   try {
-    const { data } = await PostService.getPosts()
+    const { data } = await PostService.getPosts(params)
     this.posts = data;
   } catch (error) {
     console.log(error)
