@@ -1,16 +1,18 @@
 <template>
   <div class="flex flex-col">
-    <input
-      class="w-full"
-      placeholder="Mic'drop them"
-      v-model="comment"
-      @keyup.enter="submit()"
-      type="text">
-    <button
-      @click="submit()"
-      class="ml-auto mt-2">
-        Post comment
-    </button>
+    <div class="input-group">
+      <input
+        type="text"
+        v-model="comment"
+        @keyup.enter="submit()"
+        name="Post content"
+        placeholder="What is on your mind?">
+      <button
+        @click="submit()"
+        class="btn-primary">
+          Comment
+      </button>
+    </div>
   </div>
 </template>
 
@@ -55,12 +57,7 @@ async function submit() {
       createdAt: Date.now(),
       postId: this.postId,
       content: this.comment,
-      user: {
-        firstname: this.user.firstname,
-        lastname: this.user.lastname,
-        id: this.user.id,
-        displayName: this.user.displayName
-      }
+      user: this.$utils.createUserObject(this.user)
     }
 
     await CommentService.create(request)

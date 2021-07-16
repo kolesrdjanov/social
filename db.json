@@ -6,7 +6,8 @@
       "password": "password1",
       "firstname": "Konstantin v1",
       "lastname": "Srdjanov v1",
-      "displayName": "Colio 1"
+      "displayName": "Colio 1",
+      "icon": "peach"
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "password": "password2",
       "firstname": "Konstantin v2",
       "lastname": "Srdjanov v2",
-      "displayName": "Colio 2"
+      "displayName": "Colio 2",
+      "icon": "pine"
     },
     {
       "firstname": "Boran",
@@ -22,7 +24,8 @@
       "displayName": "Bohrun",
       "username": "user",
       "password": "pass",
-      "id": 3
+      "id": 3,
+      "icon": "cherry"
     },
     {
       "firstname": "Dunjy",
@@ -30,215 +33,74 @@
       "displayName": "Dunj",
       "username": "un",
       "password": "pw",
-      "id": 4
+      "id": 4,
+      "icon": "lemon"
     }
   ],
   "posts": [
     {
-      "id": 1,
-      "createdAt": 1626347191505,
-      "content": "This represents a post content, yay!",
+      "createdAt": 1626441096749,
+      "content": "Money on my mind..",
       "user": {
         "id": 1,
-        "firstName": "Konstantin",
-        "lastName": "Srdjanov",
-        "displayName": "Colio"
-      }
-    },
-    {
-      "id": 2,
-      "createdAt": 1626358581994,
-      "content": "This represents a second post content, from another user :)",
-      "user": {
-        "id": 2,
-        "firstName": "Konstantin v2",
-        "lastName": "Srdjanov v2",
-        "displayName": "Colio 2"
-      }
-    },
-    {
-      "createdAt": 1626428763494,
-      "content": "International super spy!",
-      "user": {
-        "firstName": "Konstantin v1",
-        "lastName": "Srdjanov v1",
-        "displayName": "Colio 1"
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "displayName": "Colio 1",
+        "icon": "peach"
       },
-      "id": 3
+      "id": 1
     },
     {
-      "createdAt": 1626429241065,
-      "content": "Karen go home.",
+      "createdAt": 1626444901935,
+      "content": "Happy thoughts, happy thoughts, only happy thoughts :P",
       "user": {
-        "firstName": "Konstantin v1",
-        "lastName": "Srdjanov v1",
-        "displayName": "Colio 1"
-      },
-      "id": 4
-    },
-    {
-      "createdAt": 1626429291597,
-      "content": "Go home Karen.",
-      "user": {
-        "firstName": "Konstantin v1",
-        "lastName": "Srdjanov v1",
-        "displayName": "Colio 1"
-      },
-      "id": 5
-    },
-    {
-      "createdAt": 1626429318363,
-      "content": "Karen, go home Karen.",
-      "user": {
-        "firstName": "Konstantin v1",
-        "lastName": "Srdjanov v1",
-        "displayName": "Colio 1"
-      },
-      "id": 6
-    },
-    {
-      "createdAt": 1626430364311,
-      "content": "This is awesome!",
-      "user": {
-        "firstName": "Dunjy",
-        "lastName": "Topaly",
+        "id": 4,
+        "firstname": "Dunjy",
+        "lastname": "Topaly",
         "displayName": "Dunj"
       },
-      "id": 7
+      "id": 2
     }
   ],
   "comments": [
     {
-      "id": 2,
-      "createdAt": 1626347322319,
-      "content": "This represents a comment.",
-      "postId": 2,
-      "user": {
-        "id": 2,
-        "firstName": "Konstantin v2",
-        "lastName": "Srdjanov v2",
-        "displayName": "Colio 2"
-      }
-    },
-    {
-      "id": 3,
-      "createdAt": 1626347322319,
-      "content": "This represents a 2nd comment.",
+      "createdAt": 1626441433267,
       "postId": 1,
+      "content": "Nah brah, that's fucked up.",
       "user": {
         "id": 1,
-        "firstName": "Konstantin",
-        "lastName": "Srdjanov",
-        "displayName": "Colio"
-      }
-    },
-    {
-      "createdAt": 1626360970813,
-      "postId": 2,
-      "content": "New Comment made via API",
-      "user": {
         "firstname": "Konstantin v1",
         "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
+        "displayName": "Colio 1",
+        "icon": "peach"
       },
-      "id": 4
+      "id": 1
     },
     {
-      "createdAt": 1626360994969,
-      "postId": 2,
-      "content": "New Comment made via API v2",
-      "user": {
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
-      },
-      "id": 5
-    },
-    {
-      "createdAt": 1626361021029,
+      "createdAt": 1626441445846,
       "postId": 1,
-      "content": "New Comment made via API. Also edited via API.",
+      "content": "Why tho? Edited :) Again :)",
       "user": {
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
-      },
-      "id": 6
-    },
-    {
-      "createdAt": 1626361058101,
-      "postId": 1,
-      "content": "Apollo",
-      "user": {
-        "firstname": "Konstantin v2",
-        "lastname": "Srdjanov v2",
-        "id": 2,
-        "displayName": "Colio 2"
-      },
-      "id": 7
-    },
-    {
-      "createdAt": 1626365419378,
-      "postId": 1,
-      "content": "Boruha comments",
-      "user": {
-        "firstname": "Boran",
-        "lastname": "Borun",
-        "id": 3,
-        "displayName": "Bohrun"
-      },
-      "id": 8
-    },
-    {
-      "createdAt": 1626367672341,
-      "postId": 1,
-      "content": "Comment for editing. Edited with love.",
-      "user": {
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
-      },
-      "id": 9
-    },
-    {
-      "createdAt": 1626370552065,
-      "postId": 1,
-      "content": "Yestosh krestosh",
-      "user": {
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
-      },
-      "id": 10
-    },
-    {
-      "createdAt": 1626428841363,
-      "postId": 3,
-      "content": "The fuck you talking about? Karen? Edit",
-      "user": {
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "id": 1,
-        "displayName": "Colio 1"
-      },
-      "id": 11
-    },
-    {
-      "createdAt": 1626430375805,
-      "postId": 7,
-      "content": "Commenty",
-      "user": {
+        "id": 4,
         "firstname": "Dunjy",
         "lastname": "Topaly",
-        "id": 4,
         "displayName": "Dunj"
       },
-      "id": 12
+      "id": 2,
+      "edit": false
+    },
+    {
+      "createdAt": 1626444982293,
+      "postId": 2,
+      "content": "You broke lol.",
+      "user": {
+        "id": 1,
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "displayName": "Colio 1",
+        "icon": "peach"
+      },
+      "id": 3
     }
   ]
 }

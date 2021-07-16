@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="input-group">
     <input
+      class="input-icon input-icon--search"
       @input="debouncedSearch"
       v-model="query"
       placeholder="Search basically anything"
@@ -33,3 +34,10 @@ function search() {
   this.$emit('input', request)
 }
 </script>
+
+<style lang="scss" scoped>
+.input-group {
+  min-height: 60px;
+  background-color: white !important;
+}
+</style>

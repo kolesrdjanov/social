@@ -1,9 +1,9 @@
 <template>
-  <div class="create-post--wrapper p-4 mb-6">
-    <div class="mb-3">
-      <span class="fw-500 mr-2">{{ `${user.firstname} ${user.lastname}` }}</span>
-      <small class="fw-300">@{{ user.displayName }}</small>
-    </div>
+  <div class="create-post--wrapper p-4 mb-10">
+    <user-header
+      class="mb-4"
+      :user="user">
+    </user-header>
     <validation-observer
       ref="validator"
       v-slot="{ handleSubmit }">
@@ -11,22 +11,22 @@
           v-slot="{ errors, failedRules }"
           :rules="{ required: true }"
           class="flex flex-col">
-          <textarea
-            rows="6"
-            v-model="post.content"
-            name="Post content"
-            placeholder="Your thoughts go here..">
-          </textarea>
-          
-          <div v-if="errors" class="validation--wrapper mt-2">
-              <span v-if="failedRules['required']">Post content is required</span>
-          </div>
+          <div class="input-group">
+            <input
+              type="text"
+              v-model="post.content"
+              name="Post content"
+              placeholder="What is happening?">
 
-          <button
-            @click="handleSubmit(submit)"
-            class="mt-3">
-              Post
-          </button>
+            <button
+              @click="handleSubmit(submit)"
+              class="btn-primary">
+                Post
+            </button>
+          </div>
+          <div v-if="errors" class="validation--wrapper ml-7 mt-2">
+            <span v-if="failedRules['required']">Post content is required</span>
+          </div>
       </validation-provider>
     </validation-observer>
   </div>
@@ -64,16 +64,11 @@ async function submit() {
     const request = {
       createdAt: Date.now(),
       content: this.post.content,
-      user: {
-        firstName: this.user.firstname,
-        lastName: this.user.lastname,
-        displayName: this.user.displayName
-      }
+      user: this.$utils.createUserObject(this.user)
     }
 
     await PostService.create(request)
     this.post.content = ''
-    debugger
     this.$refs.validator.reset()
     this.reloadFeed()
   } catch(error) {
@@ -89,10 +84,10 @@ function reloadFeed() {
 
 <style lang="scss">
 .create-post--wrapper {
+  padding: 20px 30px 30px 30px;
+  border-radius: $size-base-border-radius;
   background-color: white;
-  position: sticky;
-  top: 90px;
-  border: 1px solid $color-border--light;
+  box-shadow: $shadow;
 }
 </style>
 

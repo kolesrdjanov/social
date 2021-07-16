@@ -12,6 +12,8 @@ button.btn-primary {
     background-color: $color-primary;
     font-weight: 700;
     font-size: 14px;
+    min-width: 150px;
+    text-transform: uppercase;
 
     &:hover {
         background-color: darken($color-primary, 5%);

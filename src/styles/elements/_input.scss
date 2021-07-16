@@ -13,8 +13,38 @@ textarea {
     max-height: 100%;
 }
 
+input.input-icon {
+    padding-left: 48px !important;
+}
+
+.input-icon--search {
+    background: url('../assets/img/icon-search.svg') no-repeat center left 16px;
+    background-size: 24px auto;
+}
+
 .validation--wrapper {
-    color: $color-error;
-    font-size: 12px;
-    font-weight: 400;
+    span {
+        color: $color-error;
+        font-size: 12px;
+        font-weight: 400;   
+    }
+}
+
+.input-group {
+    position: relative;
+    background-color: $color-pale;
+    border-radius: $size-base-border-radius;
+    padding: 6px;
+    display: flex;
+
+    input,
+    textarea {
+        flex-grow: 1;
+        flex-shrink: 0;
+        max-height: 55px;
+        resize: none;
+        padding: 0 20px;
+        background-color: transparent;
+        border: none;
+    }
 }

@@ -19,7 +19,7 @@
               @keyup.enter="submit()">
           </div>
 
-          <div class="auth-form--input-group  mb-10">
+          <div class="auth-form--input-group">
             <label class="fw-700 mb-2">Password</label>
             <input
               type="password"
@@ -30,12 +30,14 @@
           </div>
 
           <form-message
+            class="mt-4"
             v-if="registered"
             :type="'success'"
             :text="'Registration successfull! You may log in now.'">
           </form-message>
 
           <form-message
+            class="mt-4"
             v-if="error.length"
             :type="'error'"
             :text="error">
@@ -43,7 +45,7 @@
 
           <button
             @click="submit()"
-            class="btn-primary">
+            class="btn-primary mt-10">
               Login
           </button>
 

@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <search
-      @input="getPosts">
-    </search>
-    <create-post
-      @reloadFeed="getPosts">
-    </create-post>
-    <post
-      v-for="post in posts"
-      :key="post.id"
-      :data="post"
-      class="mb-8">
-    </post>
+  <div class="flex flex-row">
+    <div class="posts-container flex flex-col flex-grow pr-10 w-full">
+      <create-post
+        @reloadFeed="getPosts">
+      </create-post>
+      <post
+        v-for="post in posts"
+        :key="post.id"
+        :data="post"
+        class="mb-10">
+      </post>
+    </div>
+    <div class="search-container">
+      <search
+        @input="getPosts">
+      </search>
+    </div>
   </div>
 </template>
 
@@ -52,3 +56,13 @@ async function getPosts(params) {
   }
 }
 </script>
+
+<style lang="scss">
+.posts-container {
+
+}
+
+.search-container {
+  width: 300px;
+}
+</style>

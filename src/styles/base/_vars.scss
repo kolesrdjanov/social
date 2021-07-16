@@ -1,8 +1,9 @@
-$size-container: 520px;
+$size-posts-container: 1100px;
 $size-container--gutter: 15px;
 $size-base-border-radius: 40px;
-$size-button-gutter: 16px;
+$size-button-gutter: 14px;
 
+$color-accent: #88D2FF;
 $color-primary: #75C2FC;
 $color-pale: #F3F8FE;
 $color-dark: #0B1126;
@@ -11,3 +12,5 @@ $color-border--light: #F4F4F4;
 $color-border--medium: #F0F0F0;
 $color-error: #c24848; 
 $color-success: #52c469;
+
+$shadow: 0px 20px 60px rgba(31, 27, 60, 0.1);

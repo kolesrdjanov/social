@@ -1,46 +1,43 @@
 <template>
   <div>
-    <ul>
+    <ul class="mb-10">
       <li
         v-for="comment in data"
         :key="comment.id"
-        class="py-3">
+        class="py-4 border-bottom--pale">
           <div>
             <div class="flex">
               <div class="flex-grow">
-                <div class="mb-1">
-                  <label class="mr-2">@{{ comment.user.displayName }}</label>
-                  <small class="ml-auto">{{ $moment(comment.createdAt).fromNow() }}</small>
-                </div>
-                <label v-if="!comment.edit">{{ comment.content }}</label>
-                <div v-else class="flex flex-col mb-6">
-                  <textarea
-                    v-if="commentForEdit"
-                    :ref="`comment_input_${comment.id}`"
-                    rows="5"
-                    v-model="commentForEdit.content"
-                    type="text"
-                    class="mb-2">
-                  </textarea>
-                  <div>
-                    <button class="mr-3" @click="updateComment()">Update</button>
-                    <button @click="hideEditComment(comment)">Cancel</button>
+                <user-header
+                  :user="comment.user"
+                  :timestamp="comment.createdAt">
+                </user-header>
+                <div class="comment-inner">
+                  <label v-if="!comment.edit">{{ comment.content }}</label>
+                  <div v-else class="flex flex-col">
+                    <div class="input-group" v-if="commentForEdit">
+                      <input
+                        @keyup.esc="hideEditComment(comment)"
+                        @keyup.enter="updateComment()"
+                        :ref="`comment_input_${comment.id}`"
+                        v-model="commentForEdit.content">
+                      <button class="btn-primary" @click="updateComment()">Update</button>
+                    </div>
                   </div>
                 </div>
               </div>
-              
             </div>
-            <div>
+            <div class="comment-inner flex">
               <small
                 v-if="comment.user.id === user.id"
                 @click="showEditComment(comment)"
-                class="underline cursor-pointer mt-2 mr-2">
+                class="color-medium cursor-pointer mt-3 mr-2">
                   Edit
               </small>
               <small
                 v-if="comment.user.id === user.id || post.user.id === user.id"
                 @click="removeComment(comment.id)"
-                class="underline cursor-pointer mt-2">
+                class="color-medium cursor-pointer mt-3">
                   Remove
               </small>
             </div>
@@ -132,3 +129,9 @@ function reloadComments() {
   this.$emit('reloadComments')
 }
 </script>
+
+<style lang="scss">
+.comment-inner {
+  padding-left: 72px;
+}
+</style>

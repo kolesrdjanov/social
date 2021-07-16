@@ -1,6 +1,6 @@
 <template>
   <div
-    class="form-message p-3 rounded text-center fw-400"
+    class="form-message rounded fw-500"
     :class="`form-message--${type}`">
       {{ text }}
   </div>
@@ -24,14 +24,15 @@ export default {
 <style lang="scss" scoped>
 div.form-message {
   color: white;
-  font-size: 12px;
+  font-size: 14px;
+
 
   &.form-message--success {
-    background-color: $color-success;
+    color: $color-success;
   }
 
   &.form-message--error {
-    background-color: $color-error;
+    color: $color-error;
   }
 }
 </style>

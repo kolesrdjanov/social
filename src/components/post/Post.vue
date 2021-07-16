@@ -1,37 +1,47 @@
 <template>
   <div>
     <div class="mb-4 post-wrapper rounded-md px-3 pt-6 pb-3">
-      <div class="post--user">
-        <span class="fw-500 mr-2">{{ `${data.user.firstName} ${data.user.lastName}` }}</span>
-        <small class="fw-300">@{{ data.user.displayName }}</small>
-      </div>
-      <article class="text-lg my-2 post-content p-4">
+      <user-header
+        :user="data.user">
+      </user-header>
+      <article class="text-lg post-content color-dark">
         {{ data.content }}
       </article>
-      <small>{{ data.createdAt | moment('DD MMM YYYY h:mm A')  }}</small>
-      <div v-if="user.id === data.user.id">
-        <small class="underline cursor-pointer">Remove</small>
+      <div class="flex flex-col">
+        <small class="color-medium ml-auto">{{ data.createdAt | moment('DD MMM YYYY')  }}</small>
       </div>
-      <div class="mt-4 mb-4">
-        <small
-          v-if="comments.length"
-          @click="toggleComments()"
-          class="underline cursor-pointer">
-            {{ showComments ? 'Hide comments' : `Show ${comments.length} comments` }}
-        </small>
-      </div>
-      <div>
-        <comments
-          v-if="comments.length"
-          v-show="showComments"
-          :post="data"
-          :data="comments"
-          @reloadComments="getComments">
-        </comments>
-        <create-comment
-          :post-id="data.id"
-          @reloadComments="getComments">
-        </create-comment>
+
+      <div class="inner">
+        <div class="mt-4 mb-6 flex flex-row">
+          <small
+            v-if="comments.length"
+            @click="toggleComments()"
+            class="cursor-pointer fw-500 color-medium fs-14">
+              <i class="icon-comment"></i>
+              {{ showComments ? 'Hide comments' : `${comments.length} comments` }}
+          </small>
+          <div v-if="user.id === data.user.id" class="ml-auto">
+            <small class="cursor-pointer fw-500 color-medium fs-14 mr-4">
+              Edit
+            </small>
+            <small class="cursor-pointer fw-500 color-medium fs-14">
+              Remove
+            </small>
+          </div>
+        </div>
+        <div>
+          <comments
+            v-if="comments.length"
+            v-show="showComments"
+            :post="data"
+            :data="comments"
+            @reloadComments="getComments">
+          </comments>
+          <create-comment
+            :post-id="data.id"
+            @reloadComments="getComments">
+          </create-comment>
+        </div>
       </div>
     </div>
   </div>
@@ -96,9 +106,25 @@ async function getComments() {
 
 <style lang="scss">
 .post-wrapper {
-  border: 1px solid $color-border--light;
+  padding: 20px 30px 30px 30px;
+  border-radius: $size-base-border-radius;
+  background-color: white;
+  box-shadow: $shadow;
 }
+
 .post-content {
-  
+  margin-left: 72px;
+}
+
+.icon-comment {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 6px;
+}
+
+.inner {
+  margin-left: 72px;
 }
 </style>

@@ -19,12 +19,18 @@ const routes = [
       {
         path: '/home',
         name: 'home',
-        component: () => import('@/views/home/Home.vue')
+        component: () => import('@/views/home/Home.vue'),
+        meta: {
+          icon: 'home'
+        }
       },
       {
         path: '/me',
         name: 'profile',
-        component: () => import('@/views/profile/Profile.vue')
+        component: () => import('@/views/profile/Profile.vue'),
+        meta: {
+          icon: 'user'
+        }
       },
     ]
   },

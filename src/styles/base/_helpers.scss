@@ -71,3 +71,7 @@ $breakpoints: (
         @content;
     }
 }
+
+.border-bottom--pale {
+    border-bottom: 1px solid $color-pale;
+}
