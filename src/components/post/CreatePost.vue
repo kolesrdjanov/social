@@ -1,5 +1,5 @@
 <template>
-  <div class="create-post--wrapper p-4 mb-10">
+  <div class="create-post--wrapper p-4 mb-10 w-full">
     <user-header
       class="mb-4"
       :user="user">

@@ -2,7 +2,9 @@
   <div class="main-content pt-10 pl-4 pr-4 flex items-start">
     <side-navigation></side-navigation>
     <div>
-      <router-view/>
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
   </div>
 </template>
