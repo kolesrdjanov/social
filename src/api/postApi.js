@@ -20,6 +20,21 @@ export default class PostApi {
       data: request
     })
   }
+
+  update(request) {
+    return restAPI({
+      method: 'PUT',
+      url: `/posts/${request.id}`,
+      data: request.data
+    })
+  }
+
+  remove(id) {
+    return restAPI({
+      method: 'DELETE',
+      url: `/posts/${id}`
+    })
+  }
 }
 
 export const PostService = new PostApi()

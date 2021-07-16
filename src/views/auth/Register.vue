@@ -118,7 +118,7 @@
       <button
         @click="handleSubmit(validate)"
         class="btn-primary mt-10">
-          Login
+          Create Account
       </button>
     </validation-observer>
 

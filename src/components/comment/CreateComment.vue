@@ -70,6 +70,6 @@ async function submit() {
 
 
 function reloadComments() {
-  this.$emit('reloadComments')
+  this.$emit('reloadComments', true)
 }
 </script>

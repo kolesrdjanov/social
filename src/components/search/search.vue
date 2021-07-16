@@ -4,7 +4,7 @@
       class="input-icon input-icon--search"
       @input="debouncedSearch"
       v-model="query"
-      placeholder="Search basically anything"
+      placeholder="Search posts and users.."
       type="text">
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
 
 function search() {
   const request = {
-    q: this.query
+    q: encodeURIComponent(this.query)
   }
 
   this.$emit('input', request)

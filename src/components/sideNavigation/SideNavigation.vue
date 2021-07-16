@@ -1,16 +1,21 @@
 <template>
   <aside
+     v-if="user"
     class="p-14 mr-10"
     id="aside">
+
     <router-link
-      :key="route.name"
-      :to="{ name: route.name }"
-      v-for="route in sidebar"
+      :to="{ name: 'home' }"
       class="mb-8 block router-link flex items-center">
-        <div
-          class="sidebar-icon"
-          :class="`icon-${route.meta.icon}`"></div>
+        <div class="sidebar-icon icon-home"></div>
     </router-link>
+
+    <router-link
+      :to="{ name: 'profile', params: { userId: user.id} }"
+      class="mb-8 block router-link flex items-center">
+        <div class="sidebar-icon icon-user"></div>
+    </router-link>
+
     <a class="router-link block flex items-center cursor-pointer" @click="signOutAndRedirect()">
       <div class="sidebar-icon icon-logout"></div>
     </a>

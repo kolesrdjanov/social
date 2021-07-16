@@ -1,8 +1,8 @@
 <template>
   <div class="main-content pt-10 pl-4 pr-4 flex items-start">
     <side-navigation></side-navigation>
-    <div>
-      <transition name="fade">
+    <div class="flex-grow">
+      <transition name="fade" mode="out-in">
         <router-view/>
       </transition>
     </div>

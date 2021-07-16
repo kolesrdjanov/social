@@ -1,10 +1,15 @@
 <template>
   <div>
+    <posts></posts>
   </div>
 </template>
 
 <script>
-export default {
+import Posts from '@/components/post/Posts.vue'
 
+export default {
+  components: {
+    Posts
+  }
 }
 </script>

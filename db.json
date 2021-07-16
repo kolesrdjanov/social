@@ -43,12 +43,23 @@
       "username": "un1",
       "password": "pass",
       "id": 5
+    },
+    {
+      "firstname": "Lord",
+      "lastname": "Mock",
+      "displayName": "",
+      "username": "mock",
+      "password": "mock",
+      "icon": "lemon",
+      "dsiplayName": "Mocky",
+      "id": 6
     }
   ],
   "posts": [
     {
-      "createdAt": 1626441096749,
-      "content": "Money on my mind..",
+      "createdAt": 1626455031905,
+      "content": "@Nikita just said that posts can be filtered now! Epic!",
+      "userId": 1,
       "user": {
         "id": 1,
         "firstname": "Konstantin v1",
@@ -56,22 +67,63 @@
         "displayName": "Colio 1",
         "icon": "peach"
       },
-      "id": 1
+      "id": 2
     },
     {
-      "createdAt": 1626444901935,
-      "content": "Happy thoughts, happy thoughts, only happy thoughts :P",
+      "createdAt": 1626456798328,
+      "content": "What's up peeps? Heard the news, is this app any good?",
+      "userId": 6,
       "user": {
-        "id": 4,
-        "firstname": "Dunjy",
-        "lastname": "Topaly",
-        "displayName": "Dunj"
+        "id": 6,
+        "firstname": "Lord",
+        "lastname": "Mock",
+        "displayName": "",
+        "icon": "lemon"
+      },
+      "id": 3
+    },
+    {
+      "createdAt": 1626457500439,
+      "content": "Yup yup! Whats up!",
+      "userId": 5,
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 4
+    },
+    {
+      "createdAt": 1626458039087,
+      "content": "Sup! Lol!",
+      "userId": 5,
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "createdAt": 1626456909662,
+      "postId": 3,
+      "content": "The fuck are you doing here? Gtfo Mock!",
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
       },
       "id": 2
     },
     {
-      "createdAt": 1626448067306,
-      "content": "This app rocks!",
+      "createdAt": 1626456930519,
+      "postId": 3,
+      "content": "Omg Mock GTFO!",
       "user": {
         "id": 5,
         "firstname": "Mita",
@@ -81,70 +133,65 @@
       "id": 3
     },
     {
-      "createdAt": 1626453079498,
-      "content": "Vildhjarto",
-      "user": {
-        "id": 1,
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "displayName": "Colio 1",
-        "icon": "peach"
-      },
-      "id": 4
-    }
-  ],
-  "comments": [
-    {
-      "createdAt": 1626441433267,
-      "postId": 1,
-      "content": "Nah brah, that's fucked up.",
-      "user": {
-        "id": 1,
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "displayName": "Colio 1",
-        "icon": "peach"
-      },
-      "id": 1
-    },
-    {
-      "createdAt": 1626441445846,
-      "postId": 1,
-      "content": "Why tho? Edited :) Again :)",
-      "user": {
-        "id": 4,
-        "firstname": "Dunjy",
-        "lastname": "Topaly",
-        "displayName": "Dunj"
-      },
-      "id": 2,
-      "edit": false
-    },
-    {
-      "createdAt": 1626444982293,
+      "createdAt": 1626457293719,
       "postId": 2,
-      "content": "You broke lol.",
+      "content": "Yup yup, thanks thanks :)",
       "user": {
-        "id": 1,
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "displayName": "Colio 1",
-        "icon": "peach"
-      },
-      "id": 3
-    },
-    {
-      "createdAt": 1626448301136,
-      "postId": 3,
-      "content": "Fuck yeah it rocks!",
-      "user": {
-        "id": 1,
-        "firstname": "Konstantin v1",
-        "lastname": "Srdjanov v1",
-        "displayName": "Colio 1",
-        "icon": "peach"
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
       },
       "id": 4
+    },
+    {
+      "createdAt": 1626457358095,
+      "postId": 2,
+      "content": "Yes this is awesome, looks good too :)",
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 5
+    },
+    {
+      "createdAt": 1626457455611,
+      "postId": 2,
+      "content": "Testing something, hold tight :(",
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 6
+    },
+    {
+      "createdAt": 1626457507234,
+      "postId": 4,
+      "content": "Feel free to comment!",
+      "user": {
+        "id": 5,
+        "firstname": "Mita",
+        "lastname": "Kita",
+        "displayName": "Nikita"
+      },
+      "id": 7
+    },
+    {
+      "createdAt": 1626457607621,
+      "postId": 4,
+      "content": "Mock here! Sup!",
+      "user": {
+        "id": 6,
+        "firstname": "Lord",
+        "lastname": "Mock",
+        "displayName": "",
+        "icon": "lemon"
+      },
+      "id": 8
     }
   ]
 }

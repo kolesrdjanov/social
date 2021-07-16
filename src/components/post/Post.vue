@@ -2,15 +2,44 @@
   <div>
     <div class="mb-4 post-wrapper rounded-md px-3 pt-6 pb-3">
       <user-header
+        :date="data.createdAt"
         :user="data.user">
       </user-header>
-      <article class="text-lg post-content color-dark">
+      <article v-if="!postForEdit" class="text-lg post-content color-dark">
         {{ data.content }}
       </article>
-      <div class="flex flex-col">
-        <small class="color-medium ml-auto">{{ data.createdAt | moment('DD MMM YYYY')  }}</small>
-      </div>
+      <div v-else class="mt-4">
+        <validation-observer
+          ref="validator"
+          v-slot="{ handleSubmit }">
+          <validation-provider
+              v-slot="{ errors, failedRules }"
+              :rules="{ required: true }"
+              class="flex flex-col">
+              <div class="input-group">
+                <input
+                  type="text"
+                  v-model="postForEdit.content"
+                  name="Post content"
+                  @keyup.enter="updateComment()"
+                  @keyup.esc="closeEditPost()"
+                  placeholder="What is happening?">
 
+                <button
+                  @click="handleSubmit(updateComment)"
+                  class="btn-primary">
+                    Update
+                </button>
+              </div>
+              <form-message
+                class="ml-7 mt-2"
+                :text="failedRules['required']"
+                :type="'error'"
+                v-if="errors.length">
+              </form-message>
+          </validation-provider>
+        </validation-observer>
+      </div>
       <div class="inner">
         <div class="my-4 flex flex-row items-end">
           <small
@@ -21,10 +50,10 @@
               {{ showComments ? 'Hide comments' : `${comments.length} comments` }}
           </small>
           <div v-if="user && user.id === data.user.id" class="ml-auto">
-            <small class="cursor-pointer fw-500 color-medium fs-14 mr-4">
+            <small @click="showEditPost()" class="cursor-pointer fw-500 color-medium fs-14 mr-4">
               Edit
             </small>
-            <small class="cursor-pointer fw-500 color-medium fs-14">
+            <small @click="removePost()" class="cursor-pointer fw-500 color-medium fs-14">
               Remove
             </small>
           </div>
@@ -52,6 +81,7 @@ import CreateComment from '@/components/comment/CreateComment.vue'
 import Comments from '@/components/comment/Comments.vue'
 import { CommentService } from '@/api/commentApi'
 import { createNamespacedHelpers } from "vuex"
+import { PostService } from '@/api/postApi'
 
 const { mapGetters: userGetters } = createNamespacedHelpers("user")
 
@@ -76,13 +106,19 @@ export default {
   data() {
     return {
       showComments: false,
-      comments: []
+      comments: [],
+      postForEdit: null
     }
   },
 
   methods: {
+    updateComment,
     toggleComments,
-    getComments
+    getComments,
+    showEditPost,
+    closeEditPost,
+    removePost,
+    reloadFeed
   },
 
   mounted() {
@@ -94,13 +130,48 @@ function toggleComments() {
   this.showComments = !this.showComments
 }
 
-async function getComments() {
+async function getComments(showComments = undefined) {
   try {
     const { data } = await CommentService.getCommentsForPost(this.data.id);
     this.comments = data;
+    if (showComments) this.showComments = true
   } catch (error) {
     console.log(error)
   }
+}
+
+function showEditPost() {
+  this.postForEdit = {...this.data}
+}
+
+function closeEditPost() {
+  this.postForEdit = null
+}
+
+async function updateComment() {
+  try {
+    await PostService.update({
+      id: this.data.id,
+      data: this.postForEdit
+    })
+    this.closeEditPost()
+    this.reloadFeed()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+async function removePost() {
+  try {
+    await PostService.remove(this.data.id)
+    this.reloadFeed()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+function reloadFeed() {
+  this.$emit('reloadFeed')
 }
 </script>
 

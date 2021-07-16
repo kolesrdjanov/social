@@ -1,7 +1,7 @@
 <template>
   <section class="bg-auth flex flex-row items-end h-full">
     <article class="h-full lg:w-6/12 md:w-8/12 w-full pb-10">
-      <div class="h-full flex flex-col items-end md:justify-end justify-center md:pr-20 pr-4 pl-4">
+      <div class="h-full flex flex-col md:items-end items-start md:justify-end justify-center md:pr-20 pr-4 pl-4">
         <router-view/>
       </div>
     </article>

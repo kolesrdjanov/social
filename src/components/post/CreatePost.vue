@@ -67,6 +67,7 @@ async function submit() {
     const request = {
       createdAt: Date.now(),
       content: this.post.content,
+      userId: this.user.id,
       user: this.$utils.createUserObject(this.user)
     }
 
