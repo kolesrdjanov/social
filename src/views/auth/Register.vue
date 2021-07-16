@@ -43,6 +43,13 @@ import { AuthService } from '@/api/authApi'
 import { UserService } from '@/api/userApi'
 import _debounce from "lodash/debounce";
 
+const icons = [
+  'peach',
+  'lemon',
+  'pine',
+  'cherry'
+]
+
 const SEARCH_TIMEOUT = 300
 
 export default {
@@ -54,7 +61,8 @@ export default {
          lastname: '',
          displayName: '',
          username: '',
-         password: ''
+         password: '',
+         icon: icons[Math.floor(Math.random() * icons.length)]
        }
      }
    },

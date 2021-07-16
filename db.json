@@ -35,6 +35,14 @@
       "password": "pw",
       "id": 4,
       "icon": "lemon"
+    },
+    {
+      "firstname": "Mita",
+      "lastname": "Kita",
+      "displayName": "Nikita",
+      "username": "un1",
+      "password": "pass",
+      "id": 5
     }
   ],
   "posts": [

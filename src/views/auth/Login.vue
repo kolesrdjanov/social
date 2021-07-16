@@ -48,7 +48,7 @@
 
     <div class="auth-form--footer mt-auto">
       <label class="block mb-1">You don't have an account?</label>
-      <a class="fw-700 underline" @click="$router.push('/register')">Register here</a>
+      <a class="fw-700 underline cursor-pointer" @click="$router.push('/register')">Register here</a>
     </div>
   </div>
 </template>
