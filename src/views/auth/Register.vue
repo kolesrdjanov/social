@@ -57,7 +57,7 @@
           <input
             type="text"
             placeholder="Display name"
-            v-model="user.dsiplayName"
+            v-model="user.displayName"
             name="Display name">
         </div>
         <form-message
