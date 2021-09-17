@@ -6,6 +6,7 @@ import user from './modules/user'
 Vue.use(Vuex)
 
 const vuexLocalStorage = new VuexPersist({
+  key: 'socy',
   modules: [ "user" ]
   }),
   state = {
