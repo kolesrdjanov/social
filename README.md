@@ -20,5 +20,11 @@ npm run build
 npm run lint
 ```
 
+### Mock
+Make sure that json-server package is intstalled and run following command within the root of the dir
+```
+json-server --watch db.json
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
