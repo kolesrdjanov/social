@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <label>@{{ displayName }}</label>
+    <label>@{{ display }}</label>
     <ul>
       <li>
         <router-link :to="{ name: 'profile' }">My profile</router-link>
@@ -15,7 +15,7 @@
 <script>
 export default {
   props: {
-    displayName: {
+    display: {
       type: String
     }
   },

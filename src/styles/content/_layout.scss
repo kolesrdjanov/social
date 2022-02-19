@@ -4,3 +4,9 @@
     margin: 0 auto;
     padding: 0 $size-container--gutter;
 }
+
+aside#aside {
+  @include respond-to('large') {
+    top: 16px;
+  }
+}

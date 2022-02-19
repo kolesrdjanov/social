@@ -57,7 +57,7 @@
           <input
             type="text"
             placeholder="Display name"
-            v-model="user.displayName"
+            v-model="user.display"
             name="Display name">
         </div>
         <form-message
@@ -75,7 +75,6 @@
         <div class="auth-form--input-group">
           <label class="fw-700 mb-2">Username</label>
           <input
-            @input="debouncedCheckUsername"
             type="text"
             placeholder="Username"
             v-model="user.username"
@@ -132,8 +131,6 @@
 
 <script>
 import { AuthService } from '@/api/authApi'
-import { UserService } from '@/api/userApi'
-import _debounce from "lodash/debounce";
 import FormMessage from '../../components/shared/FormMessage.vue';
 
 const icons = [
@@ -143,8 +140,6 @@ const icons = [
   'cherry'
 ]
 
-const SEARCH_TIMEOUT = 300
-
 export default {
   components: { FormMessage },
    data() {
@@ -153,7 +148,7 @@ export default {
        user: {
          firstname: '',
          lastname: '',
-         displayName: '',
+         display: '',
          username: '',
          password: '',
          icon: icons[Math.floor(Math.random() * icons.length)]
@@ -163,44 +158,26 @@ export default {
 
    methods: {
      validate,
-     debouncedCheckUsername: _debounce(checkUsername, SEARCH_TIMEOUT),
      submit
    }
 }
 
 async function validate() {
-  if (this.error.length) {
-    return
-  }
-  // validate form
-
+  this.error = ''
   this.submit()
 }
 
-async function checkUsername() {
-  this.error = ''
-
-  if (this.user.username.length) {
-    const { data } = await UserService.getUserByUsername({
-      username: this.user.username
-    })
-
-    if (data.length) {
-      // user exist
-      this.error = "Username is taken. Please use something else."
-    }
-  } 
-}
-
 async function submit() {
-  const { data } = await AuthService.register(this.user)
-  if (data) {
+  try {
+    await AuthService.register(this.user)
     this.$router.push({
       name: 'signIn',
       query: {
         register: 'success'
       }
     })
+  } catch (error) {
+    this.error = error.response.data.error
   }
 }
 </script>

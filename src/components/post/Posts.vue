@@ -1,6 +1,6 @@
 <template>
-  <div class="flex flex-row">
-    <div class="posts-container flex flex-col flex-grow pr-10 w-full">
+  <div class="flex flex-grow w-full xl:w-auto">
+    <div class="posts-container flex flex-col flex-grow sm:pr-0 xl:pr-10 w-full">
       <create-post
         v-if="$route.name === 'home'"
         @reloadFeed="getPosts">
@@ -12,14 +12,19 @@
         @reloadFeed="getPosts"
         class="mb-10">
       </post>
-      <div v-if="$route.name === 'profile' && !posts.length">
-        <p class="mt-10 color-medium fs-14 fw-700">Still no posts? Get back on home and start posting!</p>
-      </div>
-      <div v-if="$route.name === 'home' && !posts.length">
-        <p class="mt-4 color-medium fs-14 fw-700">Nothing to show..</p>
+      <div class="text-center">
+        <div v-if="!posts.length && loading">
+          <p class="mt-4 color-medium fs-14 fw-700">Loading..</p>
+        </div>
+        <div v-else-if="$route.name === 'profile' && !posts.length && !loading">
+          <p class="mt-10 color-medium fs-14 fw-700">Still no posts? Get back on home and start posting!</p>
+        </div>
+        <div v-else-if="$route.name === 'home' && !posts.length && !loading">
+          <p class="mt-4 color-medium fs-14 fw-700">Nothing to show..</p>
+        </div>
       </div>
     </div>
-    <div class="search-container">
+    <div class="search-container hidden xl:visible xl:flex">
       <search
         v-if="$route.name === 'home'"
         @input="getPosts">
@@ -43,6 +48,7 @@ export default {
 
   data() {
     return {
+      loading: false,
       posts: []
     }
   },
@@ -57,6 +63,7 @@ export default {
 }
 
 async function getPosts(params) {
+  this.loading = true
   try {
     const request = {}
     if (this.$route.params.userId) {
@@ -70,13 +77,26 @@ async function getPosts(params) {
     this.posts = data;
   } catch (error) {
     console.log(error)
+  } finally {
+    this.loading = false
   }
 }
 </script>
 
 <style lang="scss">
+.posts-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .search-container {
   width: 300px;
   flex-shrink: 0;
+  flex-flow: column;
+
+  > * {
+    position: sticky;
+    top: 40px;
+  }
 }
 </style>

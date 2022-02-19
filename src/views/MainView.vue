@@ -1,7 +1,7 @@
 <template>
-  <div class="main-content pt-10 pl-4 pr-4 flex items-start">
+  <div class="main-content pt-4 xl:pt-10 pl-4 pr-4 items-start flex flex-col xl:flex-row">
     <side-navigation></side-navigation>
-    <div class="flex-grow">
+    <div class="flex-grow w-full">
       <transition name="fade" mode="out-in">
         <router-view/>
       </transition>

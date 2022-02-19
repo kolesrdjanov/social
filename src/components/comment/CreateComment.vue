@@ -9,6 +9,7 @@
         placeholder="What is on your mind?">
       <button
         @click="submit()"
+        :disabled="saving"
         class="btn-primary">
           Comment
       </button>
@@ -31,6 +32,7 @@ export default {
 
   data() {
     return {
+      saving: false,
       comment: ''
     }
   },
@@ -52,12 +54,12 @@ async function submit() {
     return
   }
 
+  this.saving = true
+
   try {
     const request = {
-      createdAt: Date.now(),
       postId: this.postId,
-      content: this.comment,
-      user: this.$utils.createUserObject(this.user)
+      content: this.comment
     }
 
     await CommentService.create(request)
@@ -65,6 +67,8 @@ async function submit() {
     this.reloadComments()
   } catch (error) {
     console.log(error)
+  } finally {
+    this.saving = false
   }
 }
 

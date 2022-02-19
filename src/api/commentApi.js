@@ -1,13 +1,13 @@
 import restAPI from '@/config/http'
+import store from '@/store'
 
 export default class CommentApi {
   getCommentsForPost(postId) {
     return restAPI({
       method: 'GET',
-      url: `/posts/${postId}/comments`,
-      params: {
-          _sort: 'createdAt',
-          _order: 'asc'
+      url: `/comments/post/${postId}`,
+      headers: {
+        'Authorization': store.getters['user/token']
       }
     })
   }
@@ -16,14 +16,20 @@ export default class CommentApi {
     return restAPI({
       method: 'POST',
       url: `/comments`,
-      data: request
+      data: request,
+      headers: {
+        'Authorization': store.getters['user/token']
+      }
     })
   }
 
   remove(id) {
     return restAPI({
       method: 'DELETE',
-      url: `/comments/${id}`
+      url: `/comments/${id}`,
+      headers: {
+        'Authorization': store.getters['user/token']
+      }
     })
   }
 
@@ -31,7 +37,10 @@ export default class CommentApi {
     return restAPI({
       method: 'PUT',
       url: `/comments/${request.id}`,
-      data: request.data
+      data: request.data,
+      headers: {
+        'Authorization': store.getters['user/token']
+      }
     })
   }
 }

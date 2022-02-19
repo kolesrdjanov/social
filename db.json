@@ -6,7 +6,7 @@
       "password": "password1",
       "firstname": "Konstantin v1",
       "lastname": "Srdjanov v1",
-      "displayName": "Colio 1",
+      "display": "Colio 1",
       "icon": "peach"
     },
     {
@@ -15,13 +15,13 @@
       "password": "password2",
       "firstname": "Konstantin v2",
       "lastname": "Srdjanov v2",
-      "displayName": "Colio 2",
+      "display": "Colio 2",
       "icon": "pine"
     },
     {
       "firstname": "Boran",
       "lastname": "Borun",
-      "displayName": "Bohrun",
+      "display": "Bohrun",
       "username": "user",
       "password": "pass",
       "id": 3,
@@ -30,7 +30,7 @@
     {
       "firstname": "Dunjy",
       "lastname": "Topaly",
-      "displayName": "Dunj",
+      "display": "Dunj",
       "username": "un",
       "password": "pw",
       "id": 4,
@@ -39,7 +39,7 @@
     {
       "firstname": "Mita",
       "lastname": "Kita",
-      "displayName": "Nikita",
+      "display": "Nikita",
       "username": "un1",
       "password": "pass",
       "id": 5
@@ -47,7 +47,7 @@
     {
       "firstname": "Lord",
       "lastname": "Mock",
-      "displayName": "Mocky",
+      "display": "Mocky",
       "username": "mock",
       "password": "mock",
       "icon": "lemon",
@@ -63,7 +63,7 @@
         "id": 1,
         "firstname": "Konstantin v1",
         "lastname": "Srdjanov v1",
-        "displayName": "Colio 1",
+        "display": "Colio 1",
         "icon": "peach"
       },
       "id": 2
@@ -76,7 +76,7 @@
         "id": 6,
         "firstname": "Lord",
         "lastname": "Mock",
-        "displayName": "Mocky",
+        "display": "Mocky",
         "icon": "lemon"
       },
       "id": 3
@@ -89,7 +89,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 4
     },
@@ -101,7 +101,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 5
     }
@@ -115,7 +115,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 2
     },
@@ -127,7 +127,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 3
     },
@@ -139,7 +139,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 4
     },
@@ -151,7 +151,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 5
     },
@@ -163,7 +163,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 6
     },
@@ -175,7 +175,7 @@
         "id": 5,
         "firstname": "Mita",
         "lastname": "Kita",
-        "displayName": "Nikita"
+        "display": "Nikita"
       },
       "id": 7
     },
@@ -187,7 +187,7 @@
         "id": 6,
         "firstname": "Lord",
         "lastname": "Mock",
-        "displayName": "",
+        "display": "",
         "icon": "lemon"
       },
       "id": 8
@@ -200,10 +200,23 @@
         "id": 6,
         "firstname": "Lord",
         "lastname": "Mock",
-        "displayName": "Mocky",
+        "display": "Mocky",
         "icon": "lemon"
       },
       "id": 9
+    },
+    {
+      "createdAt": 1645009150689,
+      "postId": 5,
+      "content": "Nice.. Really nice",
+      "user": {
+        "id": 1,
+        "firstname": "Konstantin v1",
+        "lastname": "Srdjanov v1",
+        "display": "Colio 1",
+        "icon": "peach"
+      },
+      "id": 10
     }
   ]
 }

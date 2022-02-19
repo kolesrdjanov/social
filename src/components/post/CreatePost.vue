@@ -15,11 +15,13 @@
             <input
               type="text"
               v-model="post.content"
+              @keyup.enter="handleSubmit(submit)"
               name="Post content"
               placeholder="What is happening?">
 
             <button
               @click="handleSubmit(submit)"
+              :disabled="saving"
               class="btn-primary">
                 Post
             </button>
@@ -44,6 +46,7 @@ const { mapGetters: userGetters } = createNamespacedHelpers('user')
 export default {
   data() {
     return {
+      saving: false,
       post: {
         content: ''
       }
@@ -65,11 +68,10 @@ export default {
 async function submit() {
   try {
     const request = {
-      createdAt: Date.now(),
-      content: this.post.content,
-      userId: this.user.id,
-      user: this.$utils.createUserObject(this.user)
+      content: this.post.content
     }
+
+    this.saving = true
 
     await PostService.create(request)
     this.post.content = ''
@@ -77,6 +79,8 @@ async function submit() {
     this.reloadFeed()
   } catch(error) {
     console.log(error)
+  } finally {
+    this.saving = false
   }
 }
 
@@ -92,6 +96,7 @@ function reloadFeed() {
   border-radius: $size-base-border-radius;
   background-color: white;
   box-shadow: $shadow;
+  z-index: 1000;
 }
 </style>
 

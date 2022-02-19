@@ -1,18 +1,18 @@
 <template>
   <aside
      v-if="user"
-    class="p-14 mr-10"
+    class="p-4 xl:p-14 mb-6 xl:mb-0 sm:mr-0 xl:mr-10 flex flex-row xl:flex-col justify-between xl:justify-start w-full xl:w-auto"
     id="aside">
 
     <router-link
       :to="{ name: 'home' }"
-      class="mb-8 block router-link flex items-center">
+      class="sm:mb-0 xl:mb-8 block router-link flex items-center">
         <div class="sidebar-icon icon-home"></div>
     </router-link>
 
     <router-link
       :to="{ name: 'profile', params: { userId: user.id} }"
-      class="mb-8 block router-link flex items-center">
+      class="sm:mb-0 xl:mb-8 block router-link flex items-center">
         <div class="sidebar-icon icon-user"></div>
     </router-link>
 
@@ -56,9 +56,13 @@ async function signOutAndRedirect() {
 </script>
 
 <style lang="scss" scoped>
-aside#aside {
+aside {
   border-radius: $size-base-border-radius;
   background-color: $color-accent;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 40px;
+  z-index: 1100;
 }
 
 .router-link {

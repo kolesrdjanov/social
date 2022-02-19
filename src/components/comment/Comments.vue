@@ -9,6 +9,7 @@
             <div class="flex">
               <div class="flex-grow">
                 <user-header
+                  :size="'small'"
                   :user="comment.user"
                   :timestamp="comment.createdAt">
                 </user-header>
@@ -27,17 +28,17 @@
                 </div>
               </div>
             </div>
-            <div class="comment-inner flex">
+            <div class="comment-inner flex justify-end pr-6">
               <small
-                v-if="user && (comment.user.id === user.id)"
+                v-if="user && (comment.userId === user.id)"
                 @click="showEditComment(comment)"
-                class="color-medium cursor-pointer mt-3 mr-2">
+                class="color-medium cursor-pointer mt-3 mr-4 text-sm">
                   Edit
               </small>
               <small
-                v-if="user && (comment.user.id === user.id || post.user.id === user.id)"
+                v-if="user && (comment.userId === user.id || post.userId === user.id)"
                 @click="removeComment(comment.id)"
-                class="color-medium cursor-pointer mt-3">
+                class="color-medium cursor-pointer mt-3 text-sm">
                   Remove
               </small>
             </div>
@@ -132,6 +133,6 @@ function reloadComments() {
 
 <style lang="scss">
 .comment-inner {
-  padding-left: 72px;
+  padding-left: 54px;
 }
 </style>

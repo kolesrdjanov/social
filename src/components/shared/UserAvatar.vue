@@ -1,7 +1,7 @@
 <template>
   <div
     class="user-avatar mr-4"
-    :class="`icon-${icon}`">
+    :class="[`icon-${icon}`, size]">
   </div>
 </template>
 
@@ -11,6 +11,11 @@ export default {
     icon: {
       type: String,
       default: 'pine'
+    },
+
+    size: {
+      type: String,
+      default: () => 'medium'
     }
   }
 }
@@ -18,7 +23,15 @@ export default {
 
 <style lang="scss">
 .user-avatar {
-  width: 56px;
-  height: 56px;
+
+  &.medium {
+    width: 64px;
+    height: 64px;
+  }
+  
+  &.small {
+    width: 36px;
+    height: 36px;
+  }
 }
 </style>

@@ -7,7 +7,7 @@ function createUserObject(user) {
         id: user.id,
         firstname: user.firstname,
         lastname: user.lastname,
-        displayName: user.displayName,
+        display: user.display,
         icon: user.icon
     }
 }

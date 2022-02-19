@@ -1,7 +1,11 @@
 %base-button {
-    font-family: 'Montserrat', sans-serif;
-    border-radius: $size-base-border-radius;
-    padding: $size-button-gutter;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: $size-base-border-radius;
+  padding: $size-button-gutter;
+
+  @include respond-to('large') {
+    padding: 10px 16px;
+  }
 }
 
 button.btn-primary {
@@ -14,6 +18,10 @@ button.btn-primary {
     font-size: 14px;
     min-width: 150px;
     text-transform: uppercase;
+
+    @include respond-to('large') {
+      min-width: unset;
+    }
 
     &:hover {
         background-color: darken($color-primary, 5%);

@@ -1,5 +1,6 @@
 const initialData = () => ({
-	info: null
+	info: null,
+  token: null
 })
 
 export default {
@@ -10,12 +11,14 @@ export default {
 	},
 
 	mutations: {
-        setUser,
-		resetState
+    setUser,
+    setToken,
+    resetState
 	},
 
 	getters: {
-		user: state => state.info
+		user: state => state.info,
+    token: state => state.token
 	},
 
 	actions: {
@@ -25,6 +28,10 @@ export default {
 
 function setUser(state, info) {
 	state.info = info
+}
+
+function setToken(state, token) {
+  state.token = token
 }
 
 async function signOut({ commit }) {

@@ -74,7 +74,8 @@ export default {
     submit,
     showRegisterSuccess,
     ...userMutations([
-      'setUser'
+      'setUser',
+      'setToken'
     ])
   },
 
@@ -95,14 +96,19 @@ function showRegisterSuccess() {
 async function submit() {
   if (this.user.username.length && this.user.password.length) {
     this.error = '';
-    const { data } = await AuthService.signIn(this.user)
-    
-    if (data && data.length) {
-      this.setUser(data[0])
-      this.$router.push({ name: 'home' })
-    } else {
-      this.error = 'Invalid credentials.'
+
+    try {
+      const { data } = await AuthService.signIn(this.user)
+      
+      if (data) {
+        this.setUser(data.info)
+        this.setToken(data.token)
+        this.$router.push({ name: 'home' })
+      }
+    } catch (error) {
+      this.error = error.response.data.error
     }
+    
   }
 }
 </script>
