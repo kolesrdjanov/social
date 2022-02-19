@@ -1,4 +1,4 @@
-# socy
+# Social web app written in VueJS
 
 ## Project setup
 ```
