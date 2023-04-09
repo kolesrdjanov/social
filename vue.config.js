@@ -3,9 +3,7 @@ module.exports = {
   chainWebpack: config => config.optimization.minimize(true),
   productionSourceMap: false,
   devServer: {
-    allowedHosts: [
-      'https://socy-client.herokuapp.com/'
-    ]
+    disableHostCheck: true
   },
   css: {
     loaderOptions: {
